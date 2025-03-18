@@ -1,0 +1,27 @@
+[core]
+	excludesfile = /Users/hentaitang/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[safe]
+	bareRepository = explicit
+[user]
+	name = Hentaitang
+	email = mz374427166@gmail.com
+[commit]
+	template = /Users/hentaitang/.stCommitMsg
+[credential]
+	helper = store
+[http]
+	proxy = socks5://127.0.0.1:7890
+[https]
+	proxy = socks5://127.0.0.1:7890
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+	keepBackup = false
