@@ -124,3 +124,12 @@ if type brew &>/dev/null; then
 fi
 
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+mkcd () {
+  if [ -n "$1" ]; then
+    mkdir -p "$1" && cd "$1"
+  else
+    echo "Usage: mkcd <directory>"
+  fi
+}
+compdef _directories mkcd
