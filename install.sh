@@ -48,16 +48,14 @@ ln -sf "$DOTFILES_DIR/vim/.vimrc" $HOME/.vimrc
 ln -sf "$DOTFILES_DIR/git/.gitconfig" $HOME/.gitconfig
 ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" $HOME/.tmux.conf
 
-if [ -d "$HOME/.oh-my-zsh/custom/plugins" ]; then
+if [ -d "$HOME/.oh-my-zsh/custom" ]; then
 	rm -rf $HOME/.oh-my-zsh/custom/* 
 fi	
 ln -sf "$CUSTOM_THEMES_DIR" $HOME/.oh-my-zsh/custom/themes
 ln -sf "$CUSTOM_PLUGINS_DIR" $HOME/.oh-my-zsh/custom/plugins
 
-if [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-autosuggestions" ] || [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-	echo "Initializing submodules..."
-	git submodule update --init --recursive
-fi
+echo "Initializing submodules..."
+git submodule update --init --recursive
 
 echo "Dotfiles installed successfully!"
 exec zsh
