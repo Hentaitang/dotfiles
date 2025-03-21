@@ -10,7 +10,7 @@ if ! command -v zsh &> /dev/null; then
 	sudo apt update && sudo apt install -y zsh || brew install zsh
 fi
 
-if [ ! -d ~/.oh-my-zsh ]; then
+if [ ! -d $HOME/.oh-my-zsh ]; then
        	echo "Installing oh-my-zsh..."
 	RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -43,16 +43,20 @@ if [ "$ARCH" != "aarch64" ]; then
 fi
 
 
-ln -sf "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
-ln -sf "$DOTFILES_DIR/vim/.vimrc" ~/.vimrc
-ln -sf "$DOTFILES_DIR/git/.gitconfig" ~/.gitconfig
-ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" ~/.tmux.conf
-ln -sfn "$CUSTOM_THEMES_DIR" ~/.oh-my-zsh/custom/themes
-ln -sfn "$CUSTOM_PLUGINS_DIR" ~/.oh-my-zsh/custom/plugins
+ln -sf "$DOTFILES_DIR/zsh/.zshrc" $HOME/.zshrc
+ln -sf "$DOTFILES_DIR/vim/.vimrc" $HOME/.vimrc
+ln -sf "$DOTFILES_DIR/git/.gitconfig" $HOME/.gitconfig
+ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" $HOME/.tmux.conf
+
+if [ -d "$HOME/.oh-my-zsh/custom/plugins" ]; then
+	rm -rf "$HOME/.oh-my-zsh/custom/*" 
+fi	
+ln -sf "$CUSTOM_THEMES_DIR" $HOME/.oh-my-zsh/custom/themes
+ln -sf "$CUSTOM_PLUGINS_DIR" $HOME/.oh-my-zsh/custom/plugins
 
 if [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-autosuggestions" ] || [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-    echo "Initializing submodules..."
-    git submodule update --init --recursive
+	echo "Initializing submodules..."
+	git submodule update --init --recursive
 fi
 
 echo "Dotfiles installed successfully!"
