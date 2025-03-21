@@ -76,6 +76,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set undodir=~/.vim/undo_dir
 set undofile
+colorscheme evening
 
 let s:vimrc_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 if filereadable(s:vimrc_dir . '/.vimrc.bundles')
