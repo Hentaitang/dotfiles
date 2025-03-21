@@ -49,7 +49,7 @@ ln -sf "$DOTFILES_DIR/git/.gitconfig" $HOME/.gitconfig
 ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" $HOME/.tmux.conf
 
 if [ -d "$HOME/.oh-my-zsh/custom/plugins" ]; then
-	rm -rf "$HOME/.oh-my-zsh/custom/*" 
+	rm -rf $HOME/.oh-my-zsh/custom/* 
 fi	
 ln -sf "$CUSTOM_THEMES_DIR" $HOME/.oh-my-zsh/custom/themes
 ln -sf "$CUSTOM_PLUGINS_DIR" $HOME/.oh-my-zsh/custom/plugins
