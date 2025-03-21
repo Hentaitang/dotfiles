@@ -56,6 +56,6 @@ if [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-autosuggestions" ] || [ ! -d "$CUSTOM_PLUGINS
 fi
 
 echo "Reloading Zsh configuration..."
-exec zsh -c "source $HOME/.zshrc"
+exec zsh 
 
 echo "Dotfiles installed successfully!"
