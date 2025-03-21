@@ -47,8 +47,8 @@ ln -sf "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 ln -sf "$DOTFILES_DIR/vim/.vimrc" ~/.vimrc
 ln -sf "$DOTFILES_DIR/git/.gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" ~/.tmux.conf
-ln -sf "$CUSTOM_THEMES_DIR" ~/.oh-my-zsh/custom/themes
-ln -sf "$CUSTOM_PLUGINS_DIR" ~/.oh-my-zsh/custom/plugins
+ln -sfn "$CUSTOM_THEMES_DIR" ~/.oh-my-zsh/custom/themes
+ln -sfn "$CUSTOM_PLUGINS_DIR" ~/.oh-my-zsh/custom/plugins
 
 if [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-autosuggestions" ] || [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
     echo "Initializing submodules..."
