@@ -1,0 +1,12 @@
+call plug#begin('~/.vim/plugged')
+Plug 'wikitopian/hardmode'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'junegunn/vim-peekaboo'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+

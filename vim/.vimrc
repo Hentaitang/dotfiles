@@ -1,14 +1,3 @@
-" Comments in Vimscript start with a `"`.
-
-" If you open this file in Vim, it'll be syntax highlighted for you.
-
-" Vim is based on Vi. Setting `nocompatible` switches from the default
-" Vi-compatibility mode and enables useful Vim functionality. This
-" configuration option turns out not to be necessary for the file named
-" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
-" is present. But we're including it here just in case this config file is
-" loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
 set nocompatible
 
 " Turn on syntax highlighting.
@@ -70,7 +59,7 @@ set mouse+=a
 " how to prevent the latter.
 " Do this in normal mode...
 nnoremap <F5> :MundoToggle<CR>
-nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-S-f> :Files<CR>
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
@@ -87,12 +76,12 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set undodir=~/.vim/undo_dir
 set undofile
-call plug#begin()
-Plug 'wikitopian/hardmode'
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/vim-peekaboo'
-Plug 'simnalamburt/vim-mundo'
-Plug 'tpope/vim-fugitive'
-call plug#end()
+
+let s:vimrc_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+if filereadable(s:vimrc_dir . '/.vimrc.bundles')
+  execute 'source ' . s:vimrc_dir . '/.vimrc.bundles'
+endif
+
+if filereadable(s:vimrc_dir . '/coc.vim')
+  execute 'source ' . s:vimrc_dir . '/coc.vim'
+endif
