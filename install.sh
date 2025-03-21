@@ -20,6 +20,12 @@ if [ ! -d "$HOME/.nvm" ]; then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 fi
 
+if command -v node > /dev/null; then
+	echo "Node.js installed: $(node --version)"
+else
+	nvm install node
+fi
+
 if [ "$ARCH" != "aarch64" ]; then
 	if ! command -v brew &> /dev/null; then
 		echo "Installing Homebrew..."
@@ -49,15 +55,6 @@ if [ ! -d "$CUSTOM_PLUGINS_DIR/zsh-autosuggestions" ] || [ ! -d "$CUSTOM_PLUGINS
     git submodule update --init --recursive
 fi
 
-echo "Reloading Zsh configuration..."
-zsh -c "source $HOME/.zshrc"
-
-if command -v node > /dev/null; then
-	echo "Node.js installed: $(node --version)"
-else
-	nvm install node
-fi
-
-
 echo "Dotfiles installed successfully!"
 exec zsh
+
