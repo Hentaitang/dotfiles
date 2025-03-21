@@ -1,10 +1,9 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if empty(glob("~/.vim/autoload/plug.vim"))
+    silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * silent! PlugInstall
 endif
 
-call plug#begin('~/.vim/plugged')
+silent! if plug#begin('~/.vim/plugged')
 Plug 'wikitopian/hardmode'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf.vim'
@@ -15,4 +14,5 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+endif
 
