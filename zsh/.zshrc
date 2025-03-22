@@ -2,6 +2,7 @@ OS="$(uname -s)"
 
 if [[ "$OS" == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
+    source /Users/hentaitang/.config/broot/launcher/bash/br
 elif [[ "$OS" == "Linux" ]]; then
     export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
@@ -14,7 +15,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source /Users/hentaitang/.config/broot/launcher/bash/br
 
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="mm/dd/yyyy"
