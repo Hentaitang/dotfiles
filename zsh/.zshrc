@@ -14,7 +14,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source $ZSH/oh-my-zsh.sh
 source /Users/hentaitang/.config/broot/launcher/bash/br
 
 ZSH_THEME="robbyrussell"
@@ -25,6 +24,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" (%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+source $ZSH/oh-my-zsh.sh
 
 alias python="python3"
 alias mv="mv -i"           # -i prompts before overwrite
