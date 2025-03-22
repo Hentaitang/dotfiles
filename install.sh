@@ -20,12 +20,6 @@ if [ ! -d "$HOME/.nvm" ]; then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 fi
 
-if command -v node > /dev/null; then
-	echo "Node.js installed: $(node --version)"
-else
-	nvm install node
-fi
-
 if [ "$ARCH" != "aarch64" ]; then
 	if ! command -v brew &> /dev/null; then
 		echo "Installing Homebrew..."
