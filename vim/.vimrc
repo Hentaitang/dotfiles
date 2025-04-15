@@ -78,6 +78,9 @@ set undodir=~/.vim/undo_dir
 set undofile
 colorscheme evening
 
+set tabstop=2
+set shiftwidth=2
+
 let s:vimrc_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 if filereadable(s:vimrc_dir . '/.vimrc.bundles')
   execute 'source ' . s:vimrc_dir . '/.vimrc.bundles'
